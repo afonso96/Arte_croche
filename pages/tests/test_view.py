@@ -33,5 +33,5 @@ class TestAboutView:
     def test_status_code(self, about_response):
         assert about_response.status_code == 200
 
-    def test_tempalte(self, about_response):
-        assertTemplateUsed(about_response, "about:html")
+    def test_template(self, about_response):
+        assertTemplateUsed(about_response, "about.html")

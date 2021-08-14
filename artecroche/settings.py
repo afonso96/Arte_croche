@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     # My apps
     'users',
     'pages',
+    'products',
+
 ]
 
 MIDDLEWARE = [
@@ -130,3 +132,8 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.User'
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
+
+

@@ -38,9 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # My apps
+    'widget_tweaks',
     'users',
     'pages',
     'products',
+    'cart',
+
 
 
 
@@ -137,5 +140,8 @@ AUTH_USER_MODEL = 'users.User'
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
+
+
+CART_SESSION_ID = "cart"
 
 

@@ -39,12 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # My apps
     'widget_tweaks',
+    'crispy_forms',
+    'localflavor',
     'users',
     'pages',
     'products',
     'cart',
-
-
+    'orders',
 
 
 ]
@@ -143,5 +144,7 @@ MEDIA_ROOT = BASE_DIR / "media"
 
 
 CART_SESSION_ID = "cart"
+CART_ITEM_MAX_QUANTITY = 20
 
 
+CRISPY_TEMPLATE_PACK = "bootstrap4"

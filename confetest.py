@@ -1,6 +1,6 @@
 import pytest
 
-from products.test.factorys import CategoryFactory, ProductFactory
+from products.tests.factories import CategoryFactory, ProductFactory
 
 
 @pytest.fixture(autouse=True)

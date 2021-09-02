@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+import environ
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -46,6 +48,7 @@ INSTALLED_APPS = [
     'products',
     'cart',
     'orders',
+    'payments',
 
 
 ]
@@ -148,3 +151,11 @@ CART_ITEM_MAX_QUANTITY = 20
 
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
+
+
+# Mercado Pago
+
+env = environ.Env()
+env.read_env(str(BASE_DIR/".env"))
+MERCADO_PAGO_PUBLIC_KEY = env("MERCADO_PAGO_PUBLIC_KEY")
+MERCADO_PAGO_ACCESS_TOKES = env("MERCADO_PAGO_ACCESS_TOKES")

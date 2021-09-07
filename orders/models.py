@@ -1,6 +1,6 @@
-from django.db import models
 from django.conf import settings
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.db import models
 from localflavor.br.models import BRCPFField, BRPostalCodeField, BRStateField
 from model_utils.models import TimeStampedModel
 
@@ -14,7 +14,7 @@ class Order(TimeStampedModel):
     postal_code = BRPostalCodeField("CEP")
     address = models.CharField("Endereço", max_length=250)
     number = models.CharField("Número", max_length=250)
-    complement = models.CharField("Complemento", max_length=250)
+    complement = models.CharField("Complemento", max_length=250, blank=True)
     district = models.CharField("Bairro", max_length=250)
     state = BRStateField("Estado")
     city = models.CharField("Cidade", max_length=250)
@@ -32,7 +32,7 @@ class Order(TimeStampedModel):
 
     def get_description(self):
         return ", ".join(
-            [f"{item.quantity}X {item.product.name}" for item in self.items.all()]
+            [f"{item.quantity}x {item.product.name}" for item in self.items.all()]
         )
 
 

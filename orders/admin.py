@@ -1,7 +1,8 @@
 from django.contrib import admin
 
-from .models import Item, Order
 from payments.models import Payment
+
+from .models import Item, Order
 
 
 class ItemInline(admin.TabularInline):
@@ -24,7 +25,6 @@ class PaymentInline(admin.TabularInline):
         "mercado_pago_status_detail",
         "modified",
     )
-
     ordering = ("-modified",)
 
     def has_add_permission(self, request, obj):
@@ -35,4 +35,5 @@ class PaymentInline(admin.TabularInline):
 class OrderAdmin(admin.ModelAdmin):
     list_display = ["__str__", "name", "email", "cpf", "paid", "created", "modified"]
     list_filter = ["paid", "created", "modified"]
+    search_fields = ["name", "email", "cpf"]
     inlines = [ItemInline, PaymentInline]

@@ -4,13 +4,13 @@ from django.views.generic import CreateView
 
 from cart.cart import Cart
 
-from .models import Order, Item
-from .forms import OrderCreatedForm
+from .forms import OrderCreateForm
+from .models import Item, Order
 
 
 class OrderCreateView(CreateView):
     model = Order
-    form_class = OrderCreatedForm
+    form_class = OrderCreateForm
 
     def form_valid(self, form):
         cart = Cart(self.request)

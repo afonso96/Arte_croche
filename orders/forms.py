@@ -5,7 +5,7 @@ from django import forms
 from .models import Order
 
 
-class OrderCreatedForm(forms.ModelForm):
+class OrderCreateForm(forms.ModelForm):
     class Meta:
         model = Order
         fields = [
@@ -29,9 +29,8 @@ class OrderCreatedForm(forms.ModelForm):
         self.helper.add_input(
             Submit(
                 "submit",
-                "Finalizar Compra",
-                css_class="btn btn-success btn-lg btn-bloock"
-
+                "Finalizar compra",
+                css_class="btn btn-success btn-lg btn-block",
             )
         )
         self.helper.layout = Layout(
@@ -56,6 +55,6 @@ class OrderCreatedForm(forms.ModelForm):
                     Field("complement", wrapper_class="col"),
                     css_class="row",
                 ),
-                css_class="border-bottom mb-3"
+                css_class="border-bottom mb-3",
             )
         )

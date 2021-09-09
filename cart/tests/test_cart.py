@@ -27,7 +27,7 @@ def session(http_request):
 
 
 @pytest.fixture
-def car(http_request, session):
+def cart(http_request, session):
     cart = Cart(http_request)
     session.modified = False
     return cart
@@ -71,12 +71,10 @@ def test_add_product_to_empty_cart_twice(product, cart, session):
 
 
 def test_add_product_to_empty_cart_override_quantity(product, cart, session):
-    cart.add(product)
-    session.modified = False
+    cart.add(product, 2)
 
-    cart.add(product, 4, override_quantity = True)
-    assert session["cart"] == {
-        set(product.id): {"quantity": 4, "price": str(product.price)}
+    assert session[settings.CART_SESSION_ID] == {
+        str(product.id): {"quantity": 2, "price": str(product.price)}
     }
     assert session.modified
 
